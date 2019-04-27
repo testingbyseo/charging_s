@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar class="toolbar-1">
+    <ion-title>
+        <ion-icon name="heart-empty"class="heart-empty-icon" ion-button (click)="navigate()"></ion-icon>
+        <ion-icon name="search" class="search-icon" (click)="gotoSearch()"></ion-icon>        
+      </ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-grid class="grid-category">
+      <ion-row *ngFor="let img of imgs; index as i">
+        <ion-col col-3  *ngIf="i%4==0">
+            <!--<ion-button expand="block" routerLink="/photo-detail/{{imgParm}}" routerDirection="root">-->
+            <img class="images" src="{{img}}" (click)="gotoDetail(img)" >
+            <ion-icon name="heart" class="heart-on-image"></ion-icon> 
+            <!--</ion-button>-->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-category">
+        <ion-row *ngFor="let img of imgs; let i = index">
+            <ion-col  col-3  *ngIf="i%4 == 1">
+                <img class="images" src="{{img}}" (click)="gotoDetail(img)" >
+                <ion-icon name="heart" class="heart-on-image"></ion-icon> 
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-category">
+        <ion-row *ngFor="let img of imgs; let i = index">
+            <ion-col  col-3  *ngIf="i%4 == 2">
+                <img class="images" src="{{img}}" (click)="gotoDetail(img)" >
+                <ion-icon name="heart" class="heart-on-image"></ion-icon> 
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="grid-category">
+        <ion-row *ngFor="let img of imgs; let i = index">
+            <ion-col  col-3  *ngIf="i%4 == 3">
+                <img class="images" src="{{img}}" (click)="gotoDetail(img)" >
+                <ion-icon name="heart" class="heart-on-image"></ion-icon> 
+            </ion-col>
+        </ion-row>
+    </ion-grid> 
+  </div>
+</ion-content>
+ 
+  
+<!--
+<ion-content>
+  <ion-buttons *ngFor="let item of tags">
+    <ion-button *ngIf="item !== undefined" class="tag" 
+    (click)="tagModifyBtnClick()" id="oldtag{{tags.indexOf(item)}}">{{item}}</ion-button>
+  </ion-buttons>
+</ion-content>-->
+
+

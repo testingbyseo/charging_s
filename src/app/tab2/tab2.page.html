@@ -1,0 +1,48 @@
+<ion-header>
+    <!-- <img class="tBnt" src="assets/edit.png" (click)='edit_bnt()'>
+    <img class="tBnt" style="float: right;" src="assets/search.png" (click)='edit_bnt()'> -->
+
+    <ion-toolbar [hidden]="hiddenFlag">
+      <ion-button fill="clear" (click)="edit_album()" >편집</ion-button>
+    <ion-icon name="search" class="search-icon" (click)="gotoSearch()"></ion-icon>        
+  </ion-toolbar>
+  <ion-toolbar [hidden]="!hiddenFlag">
+    <ion-grid>
+      <ion-row>
+          <ion-button fill="clear" (click)="createNewFolder()">+</ion-button>
+          <ion-button fill="clear">수정</ion-button>
+          <ion-button fill="clear">삭제</ion-button>
+          <ion-button fill="clear" (click)="finish_edit()">완료</ion-button>
+      </ion-row>
+    </ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class="grid-category">
+    <ion-row *ngFor="let folder of folders; index as i">
+      <ion-col col-3  *ngIf="i%2==0">
+        <div>
+          <img class="thumb" src="{{folder.image}}" style="transform:rotate(90deg);"
+            (click)="folderModifyBtnClick(folder)">
+          <br>
+          <label (click)="folderModifyBtnClick(folder)">{{folder.folderName}}</label>
+      </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid class="grid-category">
+    <ion-row *ngFor="let folder of folders; index as i">
+      <ion-col col-3  *ngIf="i%2 !=0">
+        <div>
+          <img class="thumb" src="{{folder.image}}" style="transform:rotate(90deg);"
+            (click)="folderModifyBtnClick(folder)">
+          <br>
+          <label (click)="folderModifyBtnClick(folder)">{{folder.folderName}}</label>
+      </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
+
